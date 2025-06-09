@@ -1,0 +1,10 @@
+pycache/
+*.pyc
+.env
+.venv/
+*.egg-info/
+build/
+dist/
+generated_images/
+images/
+db.sqlite3

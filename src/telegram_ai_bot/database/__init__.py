@@ -1,0 +1,1 @@
+"""Database module for the Telegram AI Bot."""

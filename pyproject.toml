@@ -1,0 +1,62 @@
+[project]
+name = "telegram-ai-bot"
+version = "0.1.0"
+description = "A Telegram bot with AI-powered text, image, and code generation capabilities"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+keywords = ["telegram", "ai", "bot", "text-generation", "image-generation", "code-generation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Communications :: Chat",
+]
+dependencies = [
+    "aiogram>=3.3.0",  # Обновлено до последней версии на 2025
+    "python-dotenv>=1.0.1",
+    "sqlalchemy[asyncio]>=2.0.30",  # Обновлено
+    "aiosqlite>=0.20.0",  # Обновлено
+    "mistralai>=0.4.0",  # Предполагаемое обновление
+    "g4f>=0.2.0",  # Предполагаемое обновление
+    "duckduckgo-search>=6.0.0",  # Обновлено
+    "httpx>=0.27.0",  # Обновлено
+    "beautifulsoup4>=4.12.3",  # Обновлено
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",  # Обновлено до последней версии на 2025
+    "pytest-asyncio>=0.23.0",  # Обновлено
+    "tox>=4.12.0",  # Обновлено
+    "flake8>=7.0.0",  # Обновлено
+    "pydocstyle>=6.3.0",  # Обновлено
+]
+
+[build-system]
+requires = ["setuptools>=69.0.0", "wheel"]  # Обновлено
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["telegram_ai_bot*"]
+
+[tool.flake8]
+exclude = [".git", "__pycache__", ".env", ".venv"]
+max-line-length = 88
+max-complexity = 10
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--cov=telegram_ai_bot --cov-report=term-missing"
+
+[tool.pydocstyle]
+convention = "pep257"
+match_dir = ["src", "tests"]
+ignore = ["D203", "D212"]  # Игнорируем избыточные заголовки в docstring
